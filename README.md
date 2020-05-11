@@ -2,6 +2,8 @@
 
 step-1 
 clone this setup into a folder 
+
+
 step-2 
 give npm install to install all the dependencies
 
