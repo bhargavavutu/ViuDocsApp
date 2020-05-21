@@ -1,3 +1,16 @@
+
+# Steps for node_modules
+
+download node from https://nodejs.org/en/download/
+
+After downloading please set the environment variables of Path to the npm folder.
+
+clone the set up from the GitHub.
+
+open command prompt for that specific folder and run npm install.
+
+then run command "npm run start" --> it will run under localhost under port 4200.
+
 # ViudocsApp
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.1.3.
