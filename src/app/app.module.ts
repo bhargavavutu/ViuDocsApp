@@ -1,5 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { AngularFireModule} from '@angular/fire';
+import { AngularFireDatabaseModule} from 'angularfire2/database';
 import { NgModule } from '@angular/core';
+import { environment} from './../environments/environment';
 import {MatCheckboxModule, MAT_CHECKBOX_CLICK_ACTION} from '@angular/material/checkbox';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +25,8 @@ import { MaindashboardComponent } from './UIComponents/main/maindashboard/mainda
 import { RegistrationComponent } from './auth/registration/registration.component';
 import {MatCardModule} from '@angular/material/card';
 import { UploaddocumentsComponent } from './UIComponents/main/uploaddocuments/uploaddocuments.component';
+import { AngularFireAuthModule } from '@angular/fire/auth';
+import {DataserviceService} from './dataservice.service';
 const routes: Routes = [
   {path: '', component: DashboardComponent},
   {path: 'user_login', component: LoginComponent},
@@ -31,6 +36,17 @@ const routes: Routes = [
   {path:'Registration', component: RegistrationComponent},
   {path : 'upload_docs', component: UploaddocumentsComponent}
 ];
+const firebaseConfig = {
+  apiKey: "AIzaSyDJGIsBVFnPgwSvkdZUS6OE1Bl7f416yF0",
+  authDomain: "viudocs-8c0d2.firebaseapp.com",
+  databaseURL: "https://viudocs-8c0d2.firebaseio.com",
+  projectId: "viudocs-8c0d2",
+  storageBucket: "viudocs-8c0d2.appspot.com",
+  messagingSenderId: "746348610584",
+  appId: "1:746348610584:web:306609361b980024376f6d",
+  measurementId: "G-REDKHXLQC9"
+};
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -41,6 +57,9 @@ const routes: Routes = [
   ],
   imports: [
     BrowserModule,
+    AngularFireDatabaseModule,
+    AngularFireAuthModule,
+    AngularFireModule.initializeApp(firebaseConfig),
     AppRoutingModule,
     AuthModule,
     BrowserAnimationsModule,
@@ -59,7 +78,8 @@ const routes: Routes = [
   ],
 
   providers: [
-    {provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'}
+    {provide: MAT_CHECKBOX_CLICK_ACTION, useValue: 'check'},
+    DataserviceService
   ],
   bootstrap: [AppComponent]
 })

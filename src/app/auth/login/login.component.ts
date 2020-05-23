@@ -1,4 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from "@angular/core";
+import { AngularFirestore } from '@angular/fire/firestore';;
+import { AngularFireAuth } from '@angular/fire/auth';
+import * as firebase from 'firebase/app';
 import {
   FormGroup,
   FormControl,
@@ -24,8 +27,10 @@ export class LoginComponent implements OnInit {
   constructor(
     private formbuilder: FormBuilder,
     private datasvc: DataserviceService,
-    private router: Router
-  ) { }
+    private router: Router,
+    public afAuth: AngularFireAuth
+  ) {
+  }
   getloginurl = "../../../assets/samplejson/login.json";
   ngOnInit(): void {
     this.loginform = this.formbuilder.group({
@@ -38,24 +43,6 @@ export class LoginComponent implements OnInit {
       username: this.loginform.controls.username.value,
       password: this.loginform.controls.password.value,
     };
-    this.datasvc.getData(this.getloginurl).subscribe((data) => {
-      for (let i = 0; i < data.length; i++) {
-        //console.log(data[i].username);
-        if (
-          data[i].username === loginData.username &&
-          data[i].password === loginData.password
-        ) {
-          console.log(data[i].username);
-          this.router.navigate(["/"]);
-          //this.ValidUser.emit();
-          this.datasvc.postloginData(this.validuser);
-          break;
-        }
-      }
-    });
-    console.log(this.validuser);
-    if (this.loginform.invalid) {
-      return;
-    }
+    this.datasvc.signin(loginData.username, loginData.password);
   }
 }

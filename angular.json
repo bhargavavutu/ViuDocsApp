@@ -142,5 +142,8 @@
       }
     }
   },
-  "defaultProject": "viudocsApp"
+  "defaultProject": "viudocsApp",
+  "cli": {
+    "analytics": "7f53e860-bc47-4e17-b061-e69521439543"
+  }
 }
