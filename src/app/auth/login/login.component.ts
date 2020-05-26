@@ -44,5 +44,6 @@ export class LoginComponent implements OnInit {
       password: this.loginform.controls.password.value,
     };
     this.datasvc.signin(loginData.username, loginData.password);
+    console.log(this.datasvc.signin(loginData.username,loginData.password));
   }
 }

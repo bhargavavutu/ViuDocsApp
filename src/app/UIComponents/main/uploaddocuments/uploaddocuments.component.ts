@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./uploaddocuments.component.css']
 })
 export class UploaddocumentsComponent implements OnInit {
-
+  panelOpenState=false;
   constructor() { }
 
   ngOnInit(): void {

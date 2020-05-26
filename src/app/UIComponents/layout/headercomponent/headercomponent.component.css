@@ -19,6 +19,31 @@ li {
   margin-right:50px;
 }
 .mat-toolbar.mat-primary {
-  background: linear-gradient(to top, #013567 0%, #0195FA 100%);
+  background: linear-gradient(to top, white 0%, whitesmoke 100%);
   color: #fff;
+}
+.mybutton   {
+  background-color: #1b2830;
+  border-color:#1b2830;
+  color:#eee;
+}
+.mybutton:focus  {
+  background-color: #1b2830;
+}
+.mybutton:hover {
+  background-color: #1b2830;
+}
+.mybutton:not(:disabled):not(.disabled):active:focus {
+  box-shadow: #1b2830 !important ;
+}
+#mbutton {
+  background-color: #1b2830;
+  border-radius: 0;
+}
+.headIcon {
+  margin-right: 5px;
+}
+.headText {
+  /* font-size: medium; */
+  font-family: 'Raleway', sans-serif;
 }
