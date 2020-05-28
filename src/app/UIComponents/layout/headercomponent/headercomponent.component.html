@@ -11,10 +11,9 @@
         <li>
           <button class="btn mybutton" [matMenuTriggerFor]="menu" (click)="loginclick()" *ngIf="!validuser">
             <span>
-              <mat-icon style="vertical-align: bottom;" class="headIcon">
-                person_add </mat-icon><span class="headText">Login</span>
-              <mat-icon style="vertical-align: bottom;" [hidden]="closed">arrow_drop_down</mat-icon>
-              <mat-icon style="vertical-align: bottom;" [hidden]="!closed">arrow_drop_up</mat-icon>
+             <span class="headText">Login</span>
+              <mat-icon style="vertical-align: middle;" [hidden]="closed">arrow_drop_down</mat-icon>
+              <mat-icon style="vertical-align: middle;" [hidden]="!closed">arrow_drop_up</mat-icon>
             </span>
           </button>
           <mat-menu #menu="matMenu">
@@ -27,7 +26,7 @@
         <li>
           <!-- <button mat-icon-button  > -->
           <button class="btn mybutton" routerLink="/Registration"  *ngIf="!validuser">
-            <mat-icon style="vertical-align: bottom;" class="headIcon">group_add</mat-icon>
+            <!-- <mat-icon style="vertical-align: bottom;" class="headIcon">group_add</mat-icon> -->
             <a class="logintext"><span class="headText">Register</span></a>
           </button>
         </li>

@@ -21,6 +21,7 @@
 <hr>
 <h3>Uploads</h3>
 
+
 <div *ngFor="let file of files">
-  <app-upload-task [file]="file"></app-upload-task>
+  <app-upload-task [file]="file" [adhardoc] = "adhardoc" ></app-upload-task>
 </div>

@@ -1,17 +1,20 @@
-import { Component, OnInit } from "@angular/core";
-// import {UploadServiceService} from '../uploadserice/upload-service.service';
+import { Component, OnInit, Input, ChangeDetectorRef } from '@angular/core';
+import { AngularFireStorage, AngularFireUploadTask } from '@angular/fire/storage';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators';
 import * as _ from 'lodash';
-// import {Upload} from '../uploadserice/upload';
+
 @Component({
   selector: "app-upload-adhar",
   templateUrl: "./upload-adhar.component.html",
   styleUrls: ["./upload-adhar.component.scss"],
 })
 export class UploadAdharComponent implements OnInit {
-
-  constructor() {
+ constructor(private storage: AngularFireStorage, private db: AngularFirestore) {
   }
-
+  // tslint:disable-next-line: no-inferrable-types
+  adhardoc: boolean = true;
   ngOnInit(): void {}
 
   // tslint:disable-next-line: member-ordering
@@ -28,7 +31,6 @@ export class UploadAdharComponent implements OnInit {
     console.log(file);
     for (let i = 0; i < file.length; i++) {
       this.files.push(file.item(i));
-      // files.stopPropagation();
     }
   }
   onDragOver(event) {

@@ -23,21 +23,21 @@ li {
   color: #fff;
 }
 .mybutton   {
-  background-color: #1b2830;
-  border-color:#1b2830;
+  background-color: #652d92;
+  border-color:#652d92;
   color:#eee;
 }
 .mybutton:focus  {
-  background-color: #1b2830;
+  background-color: #652d92;
 }
 .mybutton:hover {
-  background-color: #1b2830;
+  background-color: #652d92;
 }
 .mybutton:not(:disabled):not(.disabled):active:focus {
-  box-shadow: #1b2830 !important ;
+  box-shadow: #652d92 !important ;
 }
 #mbutton {
-  background-color: #1b2830;
+  background-color: #652d92;
   border-radius: 0;
 }
 .headIcon {

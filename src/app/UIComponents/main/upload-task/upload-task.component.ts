@@ -11,7 +11,8 @@ import { finalize, tap } from 'rxjs/operators';
 export class UploadTaskComponent implements OnInit {
 
   @Input() file: File;
-
+  @Input() adhardoc;
+  @Input() pandoc;
   task: AngularFireUploadTask;
 
   percentage: Observable<number>;
@@ -39,14 +40,19 @@ export class UploadTaskComponent implements OnInit {
     // Progress monitoring
     this.percentage = this.task.percentageChanges();
 
-    this.snapshot   = this.task.snapshotChanges().pipe(
+    this.snapshot = this.task.snapshotChanges().pipe(
       tap(console.log),
       // The file's download URL
-      finalize( async() =>  {
+      finalize(async () => {
+        console.log(this.file);
+        console.log("adhar doc" + this.adhardoc + "pandoc " + this.pandoc);
         this.downloadURL = await ref.getDownloadURL().toPromise();
 
-        this.db.collection('files').add( { downloadURL: this.downloadURL, path });
-        console.log(this.name);
+        if (this.adhardoc === true && this.file.type === "application/pdf") {
+          this.db.collection('adharfiles').add({ downloadURL: this.downloadURL, path });
+        } else if (this.pandoc === true) {
+          this.db.collection('panfiles').add({ downloadURL: this.downloadURL, path });
+        }
       }),
     );
   }
